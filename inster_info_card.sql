@@ -1,0 +1,3 @@
+-- Active: 1697285249220@@127.0.0.1@5432@pokemoncards
+INSERT INTO Card (CardID, CardName, PokemonName, SetName, CardType, Rarity, HP, AttackName, AttackDamage, Illustrator, Description, ImageURL, ReleaseDate, owned)
+VALUES (1, 'Pikachu', 'Pikachu', 'Base Set', 'Electric', 'Common', 60, 'Thunder Shock', 40, 'Ken Sugimori', 'Pikachu is an Electric-type Pokémon.', 'https://example.com/pikachu.jpg', '1996-10-20', TRUE);
