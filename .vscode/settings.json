@@ -1,0 +1,17 @@
+{
+    "dataworkspace.excludedProjects": [
+        "GitHub/PokemonCardsApp/PokemonCards/PokemonCards.sqlproj"
+    ],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "username": "postgres",
+            "database": "pokemoncards",
+            "name": "localhost"
+        }
+    ]
+}
