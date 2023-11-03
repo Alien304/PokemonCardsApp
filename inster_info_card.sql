@@ -1,3 +1,15 @@
 -- Active: 1697285249220@@127.0.0.1@5432@pokemoncards
-INSERT INTO Card (CardID, CardName, PokemonName, SetName, CardType, Rarity, HP, AttackName, AttackDamage, Illustrator, Description, ImageURL, ReleaseDate, owned)
-VALUES (1, 'Pikachu', 'Pikachu', 'Base Set', 'Electric', 'Common', 60, 'Thunder Shock', 40, 'Ken Sugimori', 'Pikachu is an Electric-type Pokémon.', 'https://example.com/pikachu.jpg', '1996-10-20', TRUE);
+ALTER TABLE card
+ADD COLUMN Expansion VARCHAR(255);
+INSERT INTO set (setid, setname, totalcards, img_url)
+VALUES (3, 'SWSH08', 78, 'main_SWSH08.png')
+
+Alter Table set
+ADD column img_url VARCHAR;
+
+DELETE FROM SET
+WHERE setid >= 2
+
+UPDATE set
+SET img_url = 'main_sv01.png'
+WHERE setid = 1;

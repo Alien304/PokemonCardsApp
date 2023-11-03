@@ -2,17 +2,17 @@ import requests
 import os  # Import the os module
 
 # Directory where card images will be stored
-image_directory = "E:/IT/GitHub/PokemonCardsApp/Card_img/SV01"
+image_directory = "E:\IT_stuff\PokemonCardsApp\PokemonCardsApp\Card_img\SWSH08"
 
 # Create the directory if it doesn't exist
 os.makedirs(image_directory, exist_ok=True)
 
 # Base URL for the card images
-base_url = "https://tcg.pokemon.com/assets/img/sv-expansions/scarlet-violet/cards/en-us/SV01_EN_NUMBER-2x.jpg"
+base_url = "https://tcg.pokemon.com/assets/img/expansions/fusion-strike/cards/en-us/SWSH08_EN_NUMBER-2x.jpg"
 
 # Specify the range of card numbers to download
 start_card_number = 1
-end_card_number = 99
+end_card_number = 284
 
 # Download card images
 for card_number in range(start_card_number, end_card_number + 1):
