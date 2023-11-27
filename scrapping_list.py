@@ -35,7 +35,7 @@ if response.status_code == 200:
             card_data[i-1] = (card_data[i-1], card_name)
     # Print or process card data as needed
     for card in card_data:
-        imgurl = (f"E:\\IT_stuff\\PokemonCardsApp\\PokemonCardsApp\\Card_img\\SV01\\card_{card[0]}.jpg")
+        imgurl = (f"SV01/card_{card[0]}.jpg")
         data_to_insert = (idnum, card[1], imgurl, owned_status, expansionname, card[0])
         insert_query = "INSERT INTO card (cardid, cardname, imageurl, owned, expansion, cardnumber) VALUES (%s, %s, %s, %s, %s, %s)"
         cursor.execute(insert_query, data_to_insert)
