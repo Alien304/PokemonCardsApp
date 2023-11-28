@@ -42,18 +42,12 @@ class PokemonCollectionApp:
         # Add a scrollbar to the Canvas
         scrollbar = tk.Scrollbar(canvas_cards, orient="vertical", command=canvas_cards.yview)
         scrollbar.pack(side="right", fill="y")
-        # Configure the Canvas
-        def on_configure(event):
-            canvas_cards.configure(scrollregion=canvas_cards.bbox("all"))    
-        canvas_cards.bind("<Configure>", on_configure)
+        canvas_cards.configure(yscrollcommand=scrollbar.set)
         # Adding Frames to the canvas
         frame_in_canvas_sets = tk.Frame(canvas_expansion)
         frame_in_canvas_sets.pack(fill="both", expand=False, side="left", ipady=10, ipadx=10, padx=5, pady=20)
         frame_in_canvas_cards = tk.Frame(canvas_cards, bg="black")
         frame_in_canvas_cards.pack(fill="both", expand=True, side="right", ipady=10, ipadx=50)
-        # Add
-        #canvas.create_window((0,0), window=frame_in_canvas_sets, anchor="ne") 
-        #canvas.create_window((0,0), window=frame_in_canvas_cards, anchor="nw")
         # Create a list to hold PhotoImage objects
         expansion_images = []
         pk_cards_images = []
@@ -91,22 +85,27 @@ class PokemonCollectionApp:
             pk_cards_owned.append(pk_cards_owned)
             # Claim resized image as variable
             resized_pk_card_image = pk_card_image
+            # Create frame for a card
+            frame_for_card = tk.Frame(frame_in_canvas_cards)
             # Set pokemon card as Label
-            pk_card_label = tk.Label(frame_in_canvas_cards, 
+            pk_card_label = tk.Label(frame_for_card, 
                                      image=resized_pk_card_image, 
                                      text = pk_card_name , 
                                      compound="top", anchor="n")
             pk_card_label.image = resized_pk_card_image
             # Create a checkbox of owned cards
-            owned_checkbox = tk.Checkbutton(frame_in_canvas_cards,
+            owned_checkbox = tk.Checkbutton(frame_for_card,
                                             text="Owned",
                                             variable=owncheckbox_value,
                                             compound="bottom", anchor="n"
                                             )
             # Place in grid
-            pk_card_label.grid(row=i // columns, column=i % columns, padx=15, pady=10)
-            owned_checkbox.grid(row=i // columns, column=i % columns, padx=15, pady=10)
-
+            pk_card_label.pack(fill="both")
+            owned_checkbox.pack(fill="both")
+            frame_for_card.grid(row=i // columns, column=i % columns, padx=15, pady=10)
+        # Set the scroll region to the bounding box of the frame
+        canvas_cards.update_idletasks()
+        canvas_cards.config(scrollregion=canvas_cards.bbox("all"))
 if __name__ == "__main__":
     root = tk.Tk()
     # Add frame for main logo bar
