@@ -19,4 +19,4 @@ Current state:
      Creating functional UI (scrollbar and layout)
      Function of buttons which can set category of cards
      Function of making changes in status of owned cards and applying to database
-     
+    
